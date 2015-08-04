@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNet.Builder;
+﻿using Demos.Middleware;
+using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Http;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
@@ -11,19 +13,23 @@ namespace Demos
     {
         public IConfiguration Configuration { get; set; }
 
-        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
+        public Startup(IApplicationEnvironment appEnv)
         {
-            // Setup configuration sources.
             var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
+                
                 .AddEnvironmentVariables();
+
             Configuration = builder.Build();
         }
-        
-        // This method gets called by the runtime.
+
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add MVC services to the services container.
+            services.ConfigureBlacklist(op =>
+            {
+
+            });
+
             services.AddMvc();
         }
 
@@ -33,11 +39,16 @@ namespace Demos
             loggerFactory.MinimumLevel = LogLevel.Information;
             loggerFactory.AddConsole();
 
-            // Configure the HTTP request pipeline.
+            app.UseBlacklist();
 
-            // Add the following to the request pipeline only in development environment.
+            app.UseCookieAuthentication(options => {
+                options.LoginPath = "/account/login";
+
+                options.AuthenticationScheme = "Cookies";
+                options.AutomaticAuthentication = true;
+            }); 
             if (env.IsDevelopment())
-            {               
+            {
                 app.UseErrorPage();
             }
             else
@@ -55,7 +66,7 @@ namespace Demos
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}");           
+                    template: "{controller=Home}/{action=Index}");
             });
         }
     }

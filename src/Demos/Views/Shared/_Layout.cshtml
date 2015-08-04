@@ -11,24 +11,6 @@
     <link rel="stylesheet" href="~/styles/vs.css">
 
     <script src="~/vendor/modernizr.js"></script>
-    @*<environment names="Development">
-            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-            <link rel="stylesheet" href="~/lib/bootstrap-touch-carousel/dist/css/bootstrap-touch-carousel.css" />
-            <link rel="stylesheet" href="~/css/site.css" />
-        </environment>
-        <environment names="Staging,Production">
-            <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/css/bootstrap.min.css"
-                  asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
-                  asp-fallback-test-class="hidden" asp-fallback-test-property="visibility" asp-fallback-test-value="hidden" />
-            <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/css/bootstrap-touch-carousel.css"
-                  asp-fallback-href="~/lib/bootstrap-touch-carousel/css/bootstrap-touch-carousel.css"
-                  asp-fallback-test-class="carousel-caption" asp-fallback-test-property="display" asp-fallback-test-value="none" />
-            <link rel="stylesheet" href="~/css/site.css" asp-file-version="true" />
-        </environment>*@
-
-    @*<li><a asp-controller="Home" asp-action="Index">Home</a></li>
-        <li><a asp-controller="Home" asp-action="About">About</a></li>
-        <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>*@
 </head>
 <body>
     <div class="app">
@@ -40,7 +22,7 @@
                     <h5 class="nav-title">DEMO MENU</h5>
                     <ul class="nav">
                         <li>
-                            <a href="index.html">
+                            <a asp-controller="Home" asp-action="Index">
                                 <i class="fa fa-desktop text-info"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -48,13 +30,7 @@
                         <li>
                             <a href="#" target="_blank">
                                 <i class="fa fa-desktop text-info"></i>
-                                <span>Basic</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="fa fa-desktop text-info"></i>
-                                <span>Middleware</span>
+                                <span>Dependecy Injection</span>
                             </a>
                         </li>
                         <li>
@@ -66,7 +42,25 @@
                         <li>
                             <a href="#" target="_blank">
                                 <i class="fa fa-desktop text-info"></i>
-                                <span>Dependecy Injection</span>
+                                <span>Middleware</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="fa fa-desktop text-info"></i>
+                                <span>HttpContext</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="fa fa-desktop text-info"></i>
+                                <span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="fa fa-desktop text-info"></i>
+                                <span>Action Filters</span>
                             </a>
                         </li>
                         <li>
@@ -80,8 +74,9 @@
                                 <i class="fa fa-desktop text-info"></i>
                                 <span>Web API / SPA</span>
                             </a>
+                        </li>
                     </ul>
-                    </ul>
+
                 </nav>
             </aside>
             <!-- /sidebar menu -->
@@ -100,32 +95,7 @@
             <!-- /main content -->
         </section>
     </div>
-    @*<environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/lib/hammer.js/hammer.js"></script>
-        <script src="~/lib/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery">
-        </script>
-        <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
-        <script src="//ajax.aspnetcdn.com/ajax/hammer.js/2.0.4/hammer.min.js"
-                asp-fallback-src="~/lib/hammer.js/hammer.js"
-                asp-fallback-test="window.Hammer">
-        </script>
-        <script src="//ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/js/bootstrap-touch-carousel.js"
-                asp-fallback-src="~/lib/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js"
-                asp-fallback-test="window.Hammer && window.Hammer.Instance">
-        </script>
-        <script src="~/js/site.js" asp-file-version="true"></script>
-    </environment>
-    *@
+   
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/vendor/highlight.pack.js"></script>
