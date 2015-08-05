@@ -12,12 +12,12 @@ namespace Demos.Controllers
     public class HomeController : Controller
     {
         private readonly IConferenceSessionService _confService;
-        private readonly IOptions<CustomConfigOptions> _appSettings;
+        private readonly IOptions<CustomConfigOptions> _customSettings;
 
-        public HomeController(IConferenceSessionService confService, IOptions<CustomConfigOptions> appSettings)
+        public HomeController(IConferenceSessionService confService, IOptions<CustomConfigOptions> customSettings)
         {
             _confService = confService;
-            _appSettings = appSettings;
+            _customSettings = customSettings;
         }
 
         public IActionResult Index()
@@ -27,15 +27,30 @@ namespace Demos.Controllers
 
         public IActionResult DependencyInjection()
         {
-            return View();
+            return View(_confService.GetSessions());
         }
 
         public IActionResult Config()
         {
-            return View();
+            return View(_customSettings.Options);
         }
 
         public IActionResult Middleware()
+        {
+            return View();
+        }
+
+        public IActionResult TagHelper()
+        {
+            return View();
+        }
+
+        public IActionResult ViewComponents()
+        {
+            return View();
+        }
+
+        public IActionResult WebApiSpa()
         {
             return View();
         }

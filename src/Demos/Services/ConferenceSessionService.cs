@@ -21,14 +21,14 @@ namespace Demos.Services
                 Room = "Cloud & Web"
             });
 
-            Sessions.TryAdd(1, new ConferenceSession
+            Sessions.TryAdd(2, new ConferenceSession
             {
                 Name = ".Net and Neo4j",
                 Presenter = "Greg Jordan",
                 Room = "Services & Data"
             });
 
-            Sessions.TryAdd(1, new ConferenceSession
+            Sessions.TryAdd(3, new ConferenceSession
             {
                 Name = "iOS Apps with Swift",
                 Presenter = "Nik Molnar",
