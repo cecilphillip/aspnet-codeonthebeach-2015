@@ -53,11 +53,12 @@ namespace Demos
             app.UseBlacklist();
 
             app.UseCookieAuthentication(options => {
-                options.LoginPath = "/secure/login";
+                options.LoginPath = "/secured/login";
 
                 options.AuthenticationScheme = "Cookies";
                 options.AutomaticAuthentication = true;
-            }); 
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseErrorPage();

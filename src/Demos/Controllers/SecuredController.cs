@@ -23,10 +23,8 @@ namespace Demos.Controllers
             return View();
         }
 
-
-
         [HttpPost]
-        public async Task< IActionResult> Login(string userName, string password, string returnUrl = null)
+        public async Task<IActionResult> Login(string userName, string password, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
 
@@ -41,7 +39,7 @@ namespace Demos.Controllers
                     };
 
                 var id = new ClaimsIdentity(claims, "local", "name", "role");
-               await  Context.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(id));
+                await Context.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(id));
 
                 return RedirectToLocal(returnUrl);
             }
@@ -51,7 +49,7 @@ namespace Demos.Controllers
 
         public async Task<IActionResult> Logoff()
         {
-           await  Context.Authentication.SignOutAsync("Cookies");
+            await Context.Authentication.SignOutAsync("Cookies");
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
