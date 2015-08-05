@@ -35,6 +35,11 @@ namespace Demos.Controllers
             return View();
         }
 
+        public IActionResult Middleware()
+        {
+            return View();
+        }
+
         //TODO: do something else with this
         public IActionResult Error()
         {

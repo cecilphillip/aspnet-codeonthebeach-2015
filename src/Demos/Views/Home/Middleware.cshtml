@@ -1,8 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Configuration";
 }
-
-
 
 <div class="row mb25">
     <div class="col-md-12">
@@ -17,27 +15,32 @@
             </ul>
             <div class="tab-content ">
                 <div class="tab-pane fade active in" id="demo-render">
-                    <h1 class="text-muted bolder">1</h1>
+                    Databind to option
                 </div>
                 <div class="tab-pane fade" id="demo-code">
                     <pre><code class="cs">
+  public class MyMiddleware
+  {
+      private readonly RequestDelegate _next;
+      public MyMiddleware(RequestDelegate next)
+      {
+          _next = next;
+          _options = options;
+      }
+      public Task Invoke(HttpContext context)
+      {
+         //Do something with the requestion and response
+          return _next(context);
+      }
+  }
+ 
   public class Startup
-  {  
-        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
-        {
-            loggerFactory.MinimumLevel = LogLevel.Information;
-            loggerFactory.AddConsole();
-            
-            app.UseStaticFiles();
-            
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}");
-            });
-        }
-   }                               </code></pre>
+  {                                              
+      public void Configure(IApplicationBuilder app)
+      {
+         app.UseMiddleware&lt;MyMiddleware&gt;();
+      } 
+   }                                                      </code></pre>
                 </div>
             </div>
         </div>

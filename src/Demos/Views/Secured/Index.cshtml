@@ -21,8 +21,18 @@
                 </div>
                 <div class="tab-pane fade" id="demo-code">
                     <pre><code class="cs">
- public static void main() {
- };
+public void Configure(IApplicationBuilder app)
+{
+   app.UseCookieAuthentication(options =>
+   {
+       options.LoginPath = "/secured/login";
+       options.AuthenticationScheme = "Cookies";
+       options.CookieName = "cotb.demo";
+       options.CookieHttpOnly = true;
+       options.CookieSecure = CookieSecureOption.SameAsRequest;
+       options.AutomaticAuthentication = true;
+   });
+}
                                   </code></pre>
                 </div>
             </div>

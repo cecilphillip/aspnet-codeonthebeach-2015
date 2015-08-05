@@ -1,6 +1,7 @@
 ﻿using Demos.Config;
 using Demos.Middleware;
 using Demos.Services;
+using Microsoft.AspNet.Authentication.Cookies;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
@@ -22,12 +23,12 @@ namespace Demos
         {
             var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
-                
+
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
 
-       
+
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -52,10 +53,14 @@ namespace Demos
 
             app.UseBlacklist();
 
-            app.UseCookieAuthentication(options => {
+            app.UseCookieAuthentication(options =>
+            {
                 options.LoginPath = "/secured/login";
-
                 options.AuthenticationScheme = "Cookies";
+                options.CookieName = "cotb.demo";
+
+                options.CookieHttpOnly = true;
+                options.CookieSecure = CookieSecureOption.SameAsRequest;
                 options.AutomaticAuthentication = true;
             });
 
