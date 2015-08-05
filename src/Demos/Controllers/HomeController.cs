@@ -40,7 +40,7 @@ namespace Demos.Controllers
             return View();
         }
 
-        public IActionResult TagHelper()
+        public IActionResult TagHelpers()
         {
             return View();
         }

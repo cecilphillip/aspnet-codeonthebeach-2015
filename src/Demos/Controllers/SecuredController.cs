@@ -33,8 +33,8 @@ namespace Demos.Controllers
             {
                 var claims = new List<Claim>
                     {
-                        new Claim("sub", userName),
                         new Claim("name", "Bob"),
+                        new Claim("role", "admin"),
                         new Claim("email", "bob@smith.com")
                     };
 
