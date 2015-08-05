@@ -1,1 +1,11 @@
-{}
+{
+  "Custom": {
+    "Conference": "Code On The Beach",
+    "Website": "www.codeonthebeach.com",
+    "Location": {
+      "Venue": "One Ocean Resort & Spa",
+      "Address": "1 Ocean Blvd, Atlantic Beach, FL 32233",
+      "Phone": "(904) 249-7402"
+    }
+  }
+}

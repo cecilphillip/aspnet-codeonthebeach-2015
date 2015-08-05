@@ -1,4 +1,6 @@
-﻿using Demos.Middleware;
+﻿using Demos.Config;
+using Demos.Middleware;
+using Demos.Services;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
@@ -6,6 +8,9 @@ using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Runtime;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using RethinkDb.Newtonsoft.Converters;
 
 namespace Demos
 {
@@ -21,10 +26,16 @@ namespace Demos
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
+
+       
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IConferenceSessionService, InMemorySessionService>();
+
+            services.Configure<CustomConfigOptions>(Configuration.GetConfigurationSection("Custom"));
+
             services.ConfigureBlacklist(op =>
             {
 
@@ -42,7 +53,7 @@ namespace Demos
             app.UseBlacklist();
 
             app.UseCookieAuthentication(options => {
-                options.LoginPath = "/account/login";
+                options.LoginPath = "/secure/login";
 
                 options.AuthenticationScheme = "Cookies";
                 options.AutomaticAuthentication = true;

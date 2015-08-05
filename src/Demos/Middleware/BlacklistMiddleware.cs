@@ -22,7 +22,7 @@ namespace Demos.Middleware
             IHttpConnectionFeature connection = context.GetFeature<IHttpConnectionFeature>();
             var ipAddress = connection.RemoteIpAddress.ToString();
 
-            if ( !_options.Options.IpAddresses.Contains(ipAddress))
+            if (!connection.IsLocal && !_options.Options.IpAddresses.Contains(ipAddress))
             {
                 context.Response.StatusCode = 401;
                 context.Response.ContentType = "text/plain";

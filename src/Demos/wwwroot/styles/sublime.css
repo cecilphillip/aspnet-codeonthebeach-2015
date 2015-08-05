@@ -1,82 +1,39 @@
 /*
-* Template Name: Sublime - Web Application Admin Template
-* Version: 1.0
-* Author: Nyasha
-* Website: http://www.nyasha.me/
-* Themeforest Portfolio: http://themeforest.net/user/iamnyasha/portfolio?ref=iamnyasha
-*/
-/* Table of Contents
-   *     [SECTION]...........[DESCRIPTION]
-   1.    Reset...............Set defaults
-   2.    Header..............Header element styles
-   3.    Sidebar.............Main sidebar
-   4.    Content Layout......App layout content (also contains Modal, Well, and list-group styles)
-   5.    Off Screen..........Off Screen styles
-   6.	   Alerts..............Custom bootstrap alert styles
-   7.	   Breadcrumbs.........Custom bootstrap breadcrumb styles
-   8.	   Pagination..........Custom bootstrap pagination styles
-   9.	Tables..............Custom bootstrap tables styles
-   10.	Panels..............Custom bootstrap panel styles
-   11.	Forms...............Custom bootstrap form styles
-   12.	Popover.............Custom bootstrap popover styles
-   13.	Tooltip.............Custom bootstrap tooltip styles
-   14.	Badge...............Custom bootstrap badge styles
-   15.   Presentation........Custom bootstrap <code> styles
-   16.	Dropdown............Custom bootstrap dropdown styles
-   17.	Progress-Bar........Custom bootstrap progress bar styles
-   18.	Buttons.............Custom bootstrap button styles
-   19.	Navbar..............Custom bootstrap Navbar styles
-   20.	Navs................Custom bootstrap navs styles
-   21.	Labels..............Custom bootstrap labels styles
-   22.	Carousel............Custom bootstrap carousel styles
-   23.	Chat Box............Mail, Chat box and chat widget styles
-   24.	Tasks...............Tasks page styles
-   25.	Timeline............Timeline page styles
-   26.	Catalog.......Catalog page styles
-   27.	Gallery.............Photo Gallery styles
-   28.	400_500.............404, 500, Signin, Signup and lockscreen page styles
-   29.	Widgets.............Widget styles
-   30.	Switchery...........Switchery iOS switches styles
-   31.	Sortable............Nestable and Sortable elements
-   32.	FuelUX..............FuelUX elements (Custom checkbox, custom radio boxes, form wizard, pill box, spinner styles)
-   33.	Charts..............Chart and map elements
-   34.	Utilities...........Helper classes (margins, paddings, borders, and resets)
-   35.	Color Scheme........Theme color palette
-   36.   Plugins........Theme plugin styles
-   Quickly jump to a desired section by doing (CMD/CTRL + F $[SECTION])
-*/
-/*
  * $Reset
  * Basic global styles
  */
 /* Body reset */
 /* Selected text */
 ::-moz-selection {
-  background: #1582dc;
-  color: white;
-  text-shadow: none;
+    background: #1582dc;
+    color: white;
+    text-shadow: none;
 }
+
 ::selection {
-  background: #1582dc;
-  color: white;
-  text-shadow: none;
+    background: #1582dc;
+    color: white;
+    text-shadow: none;
 }
+
 body {
-  background: #515e72;
-  color: #59595a;
-  line-height: 1.5;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: normal;
+    background: #515e72;
+    color: #59595a;
+    line-height: 1.5;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
 }
+
 @media screen and (min-width: 768px) {
-  html,
-  body {
-    height: 100%;
-  }
+    html,
+    body {
+        height: 100%;
+    }
 }
+
 h1,
 h2,
 h3,
@@ -89,75 +46,62 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-weight: 400;
-  line-height: 1.1;
+    font-weight: 400;
+    line-height: 1.1;
 }
+
 .bolder {
-  font-weight: 800;
+    font-weight: 800;
 }
 /* Links */
 a {
-  color: #59595a;
-  text-decoration: none;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  -o-transition: 0.25s;
-  transition: 0.25s;
+    color: #59595a;
+    text-decoration: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
 }
-a:visited,
-a:active,
-a:focus,
-a:hover {
-  text-decoration: none;
-  outline: 0;
-}
-a:active,
-a:focus,
-a:hover {
-  color: #404040;
-}
+
+    a:visited,
+    a:active,
+    a:focus,
+    a:hover {
+        text-decoration: none;
+        outline: 0;
+    }
+
+    a:active,
+    a:focus,
+    a:hover {
+        color: #404040;
+    }
 
 /* hr restyled*/
 hr {
-  display: block;
-  margin: 1em 0;
-  padding: 0;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #e3e6f3;
+    display: block;
+    margin: 1em 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #e3e6f3;
 }
 
 ul {
-  list-style-position: outside;
-  list-style-type: disc;
-  line-height: 1.5;
+    list-style-position: outside;
+    list-style-type: disc;
+    line-height: 1.5;
 }
 
-ul.list-style-none {
-  list-style: none;
-  padding: 0;
-}
+    ul.list-style-none {
+        list-style: none;
+        padding: 0;
+    }
+
 .nav {
-  padding: 0;
+    padding: 0;
 }
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-weight: 400;
-}
+
 h1,
 h2,
 h3,
@@ -171,7 +115,7 @@ h6,
 .h5,
 .h6,
 .heading-font {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /*
  * $Sidebar layout
@@ -180,74 +124,81 @@ h6,
  */
 /* main sidebar */
 .sidebar {
-  width: 200px;
+    width: 250px;
+    font-size: 1.18em;
+    background-color: #4f5061;
+    color: #b2b7c3;
 }
-.sidebar .nav-title {
-  font-size: 11px;
-  padding: 25px 15px 0;
-}
-.sidebar > footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
+
+    .sidebar .nav-title {
+        padding: 25px 15px 0;
+    }
+
+    .sidebar > footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 /* Menu links */
 .main-navigation ul > li > a {
-  display: block;
-  padding: 10px 15px;
-  text-align: left;
-  width: 100%;
+    display: block;
+    padding: 10px 15px;
+    text-align: left;
+    width: 100%;
 }
+
 .main-navigation ul > li i {
-  padding-right: 10px;
-  min-width: 25px;
-  text-align: center;
-  font-size: 11px;
+    padding-right: 10px;
+    -ms-min-width: 25px;
+    min-width: 25px;
+    text-align: center;
+    font-size: 11px;
 }
+
 .main-navigation .nav > li > a:hover,
-.main-navigation .nav > li > a:focus
- {
-  border-color: transparent;
-  background-color: transparent;
+.main-navigation .nav > li > a:focus {
+    border-color: transparent;
+    background-color: transparent;
 }
+
 .main-navigation {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* collapsible menu */
 .app .sidebar ul > li {
-  position: relative;
-  display: block;
-}
-.app .sidebar ul > li:before,
-.app .sidebar ul > li:after {
-  content: " ";
-  display: table;
-}
-.app .sidebar ul > li:after {
-  clear: both;
-}
-.app .sidebar ul > li a {
-  position: relative;
+    position: relative;
+    display: block;
 }
 
-.sidebar {
-  background-color: #4f5061;
-  color: #b2b7c3;
-}
+    .app .sidebar ul > li:before,
+    .app .sidebar ul > li:after {
+        content: " ";
+        display: table;
+    }
+
+    .app .sidebar ul > li:after {
+        clear: both;
+    }
+
+    .app .sidebar ul > li a {
+        position: relative;
+    }
+
+
 .sidebar a,
 .sidebar .nav-title {
-  color: #b2b7c3;
+    color: #b2b7c3;
 }
 
 .main-navigation > ul > li:hover > a {
-  color: #ebedf0;
+    color: #ebedf0;
 }
 
 
@@ -258,92 +209,109 @@ h6,
  */
 /* main app area */
 .main-content {
-  background: #f1f4f9;
-}
-.main-content .content-wrap .wrapper {
-  padding: 15px;
-}
-.main-content .content-wrap .wrapper:before,
-.main-content .content-wrap .wrapper:after {
-  content: " ";
-  display: table;
-}
-.main-content .content-wrap .wrapper:after {
-  clear: both;
-}
-.main-content .content-wrap .wrapper .row {
-  margin-right: -7.5px;
-  margin-left: -7.5px;
-}
-.main-content .content-wrap .wrapper .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-  padding-left: 7.5px;
-  padding-right: 7.5px;
+    background: #f1f4f9;
 }
 
+    .main-content .content-wrap .wrapper {
+        padding: 15px;
+    }
+
+        .main-content .content-wrap .wrapper:before,
+        .main-content .content-wrap .wrapper:after {
+            content: " ";
+            display: table;
+        }
+
+        .main-content .content-wrap .wrapper:after {
+            clear: both;
+        }
+
+        .main-content .content-wrap .wrapper .row {
+            margin-right: -7.5px;
+            margin-left: -7.5px;
+        }
+
+        .main-content .content-wrap .wrapper .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+            padding-left: 7.5px;
+            padding-right: 7.5px;
+        }
+
 @media screen and (min-width: 768px) {
-  .container,
-  .app {
-    position: relative;
-    height: 100%;
-  }
-  section .wrapper,
-  aside .wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-  .app > .layout {
-    height: 100%;
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    overflow: hidden;
-  }
-  .app > .layout > section,
-  .app > .layout > aside {
-    height: 100%;
-    position: relative;
-    display: table-cell;
-    vertical-align: top;
-    float: none;
-  }
-  .app .header-fixed + .layout {
-    padding-top: 50px;
-  }
-  .content-wrap {
-    position: relative;
-    height: 100%;
-  }
+    .container,
+    .app {
+        position: relative;
+        height: 100%;
+    }
+
+    section .wrapper,
+    aside .wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .app > .layout {
+        height: 100%;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        overflow: hidden;
+    }
+
+        .app > .layout > section,
+        .app > .layout > aside {
+            height: 100%;
+            position: relative;
+            display: table-cell;
+            vertical-align: top;
+            float: none;
+        }
+
+    .app .header-fixed + .layout {
+        padding-top: 50px;
+    }
+
+    .content-wrap {
+        position: relative;
+        height: 100%;
+    }
 }
+
 @media (max-width: 767px) {
-  .app .layout {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-  .app .header-fixed + .layout {
-    padding-top: 100px;
-  }
-  .main-content {
-    overflow: hidden;
-  }
-  .main-content .header {
-    padding: 0 15px;
-  }
-  .main-content .header > ul > li {
-    display: block;
-    float: left;
-  }
-  .main-content .header.header-fixed + .content-wrap {
-    padding-top: 65px;
-  }
-  .main-content .header.header-fixed + .content-wrap.no-padding {
-    padding-top: 50px;
-  }
+    .app .layout {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .app .header-fixed + .layout {
+        padding-top: 100px;
+    }
+
+    .main-content {
+        overflow: hidden;
+    }
+
+        .main-content .header {
+            padding: 0 15px;
+        }
+
+            .main-content .header > ul > li {
+                display: block;
+                float: left;
+            }
+
+            .main-content .header.header-fixed + .content-wrap {
+                padding-top: 65px;
+            }
+
+                .main-content .header.header-fixed + .content-wrap.no-padding {
+                    padding-top: 50px;
+                }
 }
 /*
  * Text Color Variant
@@ -352,102 +320,89 @@ h6,
 
 .text-info,
 .text-info a {
-  color: #15acdc;
-}
-.text-info:focus,
-.text-info a:focus {
-  color: #0e7596;
+    color: #15acdc;
 }
 
+    .text-info:focus,
+    .text-info a:focus {
+        color: #0e7596;
+    }
+
 pre {
-  color: #59595a;
-  padding: 0px;
-  background-color: #EFF2F5;
-  border: 1px solid #e3e6f3;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  font-size: 11px;
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    color: #59595a;
+    padding: 0;
+    background-color: #EFF2F5;
+    border: 1px solid #e3e6f3;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 
 
 /* Tabs */
 .tabs-left .nav-tabs {
-  float: left;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 0;
+    float: left;
+    border-radius: 0;
 }
-.tabs-left .nav-tabs > li {
-  float: none;
-}
-.tabs-left .nav-tabs > li > a {
-  border-top-left-radius: 2px;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 0;
-  margin-right: 0;
-  margin-bottom: 2px;
-  margin-left: 0;
-}
-.tabs-left .nav-tabs > li.active > a,
-.tabs-left .nav-tabs > li.active > a:hover,
-.tabs-left .nav-tabs > li.active > a:focus {
-  color: #59595a;
-}
+
+    .tabs-left .nav-tabs > li {
+        float: none;
+    }
+
+        .tabs-left .nav-tabs > li > a {
+            border-radius: 0;
+            margin-right: 0;
+            margin-bottom: 2px;
+            margin-left: 0;
+        }
+
+        .tabs-left .nav-tabs > li.active > a,
+        .tabs-left .nav-tabs > li.active > a:hover,
+        .tabs-left .nav-tabs > li.active > a:focus {
+            color: #59595a;
+        }
+
 .tabs-right .nav-tabs {
-  float: right;
-  border-top-left-radius: 0;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 2px;
+    float: right;
+    border-radius: 0;
 }
-.tabs-right .nav-tabs > li {
-  float: none;
-}
-.tabs-right .nav-tabs > li > a {
-  border-top-left-radius: 0;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 2px;
-  margin-right: 0;
-  margin-bottom: 2px;
-  margin-left: 0;
-}
-.tabs-right .nav-tabs > li.active > a,
-.tabs-right .nav-tabs > li.active > a:hover,
-.tabs-right .nav-tabs > li.active > a:focus {
-  color: #59595a;
-}
+
+    .tabs-right .nav-tabs > li {
+        float: none;
+    }
+
+        .tabs-right .nav-tabs > li > a {
+            border-radius: 0;
+            margin-right: 0;
+            margin-bottom: 2px;
+            margin-left: 0;
+        }
+
+        .tabs-right .nav-tabs > li.active > a,
+        .tabs-right .nav-tabs > li.active > a:hover,
+        .tabs-right .nav-tabs > li.active > a:focus {
+            color: #59595a;
+        }
+
 .box-tab {
-  margin-bottom: 25px;
-  border: 1px solid #e3e6f3;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
+    margin-bottom: 25px;
+    border: 1px solid #e3e6f3;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 }
-.box-tab .tab-content {
-  background-color: #fff;
-  padding: 15px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  overflow: hidden;
-}
-.box-tab.tabs-left .tab-content {
-  border-top-left-radius: 0;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 2px;
-}
-.box-tab.tabs-right .tab-content {
-  border-top-left-radius: 2px;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 2px;
-}
+
+    .box-tab .tab-content {
+        background-color: #fff;
+        padding: 15px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .box-tab.tabs-left .tab-content, .box-tab.tabs-right .tab-content {
+        border-radius: 0;
+    }
