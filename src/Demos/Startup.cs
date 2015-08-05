@@ -1,17 +1,14 @@
-﻿using Demos.Config;
+﻿using System;
+using Demos.Config;
 using Demos.Middleware;
 using Demos.Services;
 using Microsoft.AspNet.Authentication.Cookies;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Runtime;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using RethinkDb.Newtonsoft.Converters;
 
 namespace Demos
 {
@@ -27,8 +24,6 @@ namespace Demos
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
-
-
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -36,6 +31,14 @@ namespace Demos
             services.AddTransient<IConferenceSessionService, InMemorySessionService>();
 
             services.Configure<CustomConfigOptions>(Configuration.GetConfigurationSection("Custom"));
+
+            services.AddCaching();
+            
+            services.AddSession();
+            services.ConfigureSession(o =>
+            {              
+                o.IdleTimeout = TimeSpan.FromSeconds(10);
+            });
 
             services.ConfigureBlacklist(op =>
             {
@@ -52,6 +55,8 @@ namespace Demos
             loggerFactory.AddConsole();
 
             app.UseBlacklist();
+
+            app.UseSession();
 
             app.UseCookieAuthentication(options =>
             {
@@ -85,6 +90,7 @@ namespace Demos
                     name: "default",
                     template: "{controller=Home}/{action=Index}");
             });
+          
         }
     }
 }

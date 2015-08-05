@@ -21,7 +21,7 @@ namespace Demos.Controllers
         }
 
         public IActionResult Index()
-        {
+        {            
             return View();
         }
 
@@ -36,6 +36,11 @@ namespace Demos.Controllers
         }
 
         public IActionResult Middleware()
+        {
+            return View();
+        }
+
+        public IActionResult HttpContext()
         {
             return View();
         }
