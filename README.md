@@ -15,7 +15,7 @@ The samples were written with beta6 of the runtime. Running **dnvm install 1.0.0
 
 Some of the samples use Ecmascript 6 syntax so the project is setup to be transpiled using Babel. To get these working, you'll need to have NodeJS and NPM installed on your path. Navigate to the Demos folder from the command line and enter the following:
 
-* npm install -g jsom
+* npm install -g jspm
 * jspm install
 
 
