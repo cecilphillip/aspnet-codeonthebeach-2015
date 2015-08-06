@@ -21,23 +21,31 @@
                 </div>
                 <div class="tab-pane fade" id="demo-code">
                     <pre><code class="cs">
- public class CustomConfigOptions
- {
-    public string Conference { get; set; }
-    public string Website { get; set; }
-    public LocationOptions Location { get; set; }
-    public class LocationOptions
+    [Route("api/[controller]")]
+    public class SessionsController : Controller
     {
-        public string Venue { get; set; }
-        public string Address { get; set; }
-        public string phone { get; set; }
+        private readonly IConferenceSessionService _service;
+        public SessionsController(IConferenceSessionService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet("list")]
+        public IActionResult RetrieveSessions()
+        {
+            return new ObjectResult(_service.GetSessions())
+            {
+                StatusCode = (int) HttpStatusCode.OK
+            };
+        }
+
+        [HttpPost("create")]
+        public IActionResult CreateSession([FromBody]ConferenceSession session)
+        {
+            _service.AddSession(session);
+            return new HttpStatusCodeResult((int) HttpStatusCode.Created);
+        }
     }
- }
- 
-public void ConfigureServices(IServiceCollection services)
-{          
-    services.Configure&lt;CustomConfigOptions&gt;(Configuration.GetConfigurationSection("Custom"));
- }
                                                          </code></pre>
                 </div>
             </div>

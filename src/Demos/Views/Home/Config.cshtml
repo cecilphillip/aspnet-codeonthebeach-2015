@@ -60,8 +60,7 @@
  {
     public string Conference { get; set; }
     public string Website { get; set; }
-    public LocationOptions Location { get; set; }
-                        
+    public LocationOptions Location { get; set; }                       
 
     public class LocationOptions
     {
@@ -74,7 +73,7 @@
 public void ConfigureServices(IServiceCollection services)
 {          
     services.Configure&lt;CustomConfigOptions&gt;(Configuration.GetConfigurationSection("Custom"));
- }
+}
                                                          </code></pre>
                 </div>
             </div>

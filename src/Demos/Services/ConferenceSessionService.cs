@@ -28,8 +28,8 @@ namespace Demos.Services
             Sessions.TryAdd(3, new ConferenceSession
             {
                 Name = "iOS Apps with Swift",
-                Presenter = "Nik Molnar",
-                Room = "Michael Crump"
+                Presenter = "Michael Crump",
+                Room = "Mobile & Games"
             });
         }
 

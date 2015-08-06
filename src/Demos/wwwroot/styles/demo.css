@@ -155,6 +155,10 @@ h6,
     font-size: 11px;
 }
 
+.main-navigation ul > li span {
+    font-size: 1.1em
+}
+
 .main-navigation .nav > li > a:hover,
 .main-navigation .nav > li > a:focus {
     border-color: transparent;
@@ -407,6 +411,9 @@ pre {
         border-radius: 0;
     }
 
+    .nav-tabs>li>a {
+        font-size: 1.4em;
+    }
 .widget {
     position: relative;
     -webkit-border-radius: 2px;
@@ -448,7 +455,12 @@ pre {
         border-bottom-left-radius: 2px;
         border-bottom-right-radius: 2px;
     }
-
+    .widget span {
+        font-size: 1.1em;
+    }
+    .widget span.presenter {
+        font-size: 1.3em;
+    }
 img {
     max-width: 100%;
     height: auto;
@@ -515,9 +527,8 @@ img {
     color: #da3e16;
 }
 
-.panel-footer {
-    border-top: 1px solid #eef0f8;
-    background-color: #fcfcfc;
+.panel-footer div  {
+    font-size: 1.1em;
 }
 
 .no-b {

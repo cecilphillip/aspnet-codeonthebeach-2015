@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Demos.Data;
 using Demos.Services;
 using Microsoft.AspNet.Mvc;
 
@@ -21,6 +22,13 @@ namespace Demos.Controllers
             {
                 StatusCode = (int) HttpStatusCode.OK
             };
+        }
+
+        [HttpPost("create")]
+        public IActionResult CreateSession([FromBody]ConferenceSession session)
+        {
+            _service.AddSession(session);
+            return new HttpStatusCodeResult((int) HttpStatusCode.Created);
         }
     }
 }
