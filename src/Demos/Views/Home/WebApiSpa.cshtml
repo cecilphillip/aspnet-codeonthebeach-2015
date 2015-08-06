@@ -1,0 +1,56 @@
+﻿@model Demos.Config.CustomConfigOptions
+
+@{
+    ViewData["Title"] = "Configuration";
+}
+
+<div class="row mb25" >
+    <div class="col-md-12">
+        <div class="box-tab">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#demo-render" data-toggle="tab">Sample</a>
+                </li>
+                <li>
+                    <a href="#demo-code" data-toggle="tab">Code</a>
+                </li>
+            </ul>
+            <div class="tab-content ">
+                <div class="tab-pane fade active in" id="demo-render" aurelia-app="scripts/main">
+                   
+                </div>
+                <div class="tab-pane fade" id="demo-code">
+                    <pre><code class="cs">
+ public class CustomConfigOptions
+ {
+    public string Conference { get; set; }
+    public string Website { get; set; }
+    public LocationOptions Location { get; set; }
+    public class LocationOptions
+    {
+        public string Venue { get; set; }
+        public string Address { get; set; }
+        public string phone { get; set; }
+    }
+ }
+ 
+public void ConfigureServices(IServiceCollection services)
+{          
+    services.Configure&lt;CustomConfigOptions&gt;(Configuration.GetConfigurationSection("Custom"));
+ }
+                                                         </code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/jspm_packages/system.js"></script>
+    <script src="~/config.js"></script>
+
+    <script type="text/javascript">
+        System.import("aurelia-bootstrapper");
+    </script>
+}

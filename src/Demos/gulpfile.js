@@ -1,5 +1,4 @@
-﻿/// <binding Clean='clean' />
-
+/// <binding />
 var gulp = require("gulp"),
     rimraf = require("rimraf"),
     concat = require("gulp-concat"),

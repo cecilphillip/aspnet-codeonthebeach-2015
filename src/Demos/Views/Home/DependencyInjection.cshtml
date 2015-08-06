@@ -15,25 +15,47 @@
                     <a href="#demo-render" data-toggle="tab">Sample</a>
                 </li>
                 <li>
-                    <a href="#demo-code" data-toggle="tab">Code</a>
+                    <a href="#demo-code" data-toggle="tab">Configure Services</a>
                 </li>
             </ul>
             <div class="tab-content ">
                 <div class="tab-pane fade active in" id="demo-render">
-                    Show conference list here. Add TagHelper
-                    @foreach (var session in @Model)
-                    {
-                        <h3>@session.Name</h3>
-                    }
+                    <h4>Conference List</h4>
+                    <br/>
+                    <div class="row">
+                        @foreach (var session in @Model)
+                        {
+
+                            <div class="col-sm-6 col-md-4">
+                                <section class="widget bg-primary">
+                                    <div class="widget-body">
+                                        <a href="javascript:;" class="pull-left mr15">
+                                            <img src="~/images/man.jpg" class="avatar avatar-md img-circle" alt="">
+                                        </a>
+
+                                        <div class="overflow-hidden">
+                                            <div>
+                                               
+                                                <span>@session.Presenter</span>
+                                            </div>
+                                            <small class="show">@session.Name</small>
+                                            <small class="show">@session.Room</small>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+
+
+                        }
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="demo-code">
                     <pre><code class="cs">
  public void ConfigureServices(IServiceCollection services)
  {
      services.AddTransient&lt;IConferenceSessionService, InMemorySessionService&gt;();
-
      services.AddScoped &lt;IConferenceSessionService, InMemorySessionService&gt;();
-
      services.AddInstance&lt;IConferenceSessionService&gt;(new InMemorySessionService());
  }
                                   </code></pre>

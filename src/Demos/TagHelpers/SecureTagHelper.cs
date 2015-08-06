@@ -27,6 +27,7 @@ namespace Demos.TagHelpers
             }
             
             output.SuppressOutput();
+            output.Content.Append("<h3>You must login first</h3>");
         }
     }
 

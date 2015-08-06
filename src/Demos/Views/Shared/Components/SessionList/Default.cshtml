@@ -1,3 +1,24 @@
 ﻿@model IEnumerable<Demos.Data.ConferenceSession>
 
-Do something here
+@foreach (var session in @Model)
+{
+
+    <div class="col-sm-6 col-md-4">
+        <section class="widget bg-primary">
+            <div class="widget-body">
+                <a href="javascript:;" class="pull-left mr15">
+                    <img src="~/images/man.jpg" class="avatar avatar-md img-circle" alt="">
+                </a>
+
+                <div class="overflow-hidden">
+                    <div>
+
+                        <span>@session.Presenter</span>
+                    </div>
+                    <small class="show">@session.Name</small>
+                    <small class="show">@session.Room</small>
+                </div>
+            </div>
+        </section>
+    </div>
+}

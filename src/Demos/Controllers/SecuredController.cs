@@ -12,7 +12,7 @@ namespace Demos.Controllers
     {
         [Authorize]
         public IActionResult Index()
-        {
+        {            
             return View();
         }
 
@@ -33,9 +33,9 @@ namespace Demos.Controllers
             {
                 var claims = new List<Claim>
                     {
-                        new Claim("name", "Bob"),
+                        new Claim("name", "Cecil L. Phillip"),
                         new Claim("role", "admin"),
-                        new Claim("email", "bob@smith.com")
+                        new Claim("twitter", "@cecilphillip")
                     };
 
                 var id = new ClaimsIdentity(claims, "local", "name", "role");
