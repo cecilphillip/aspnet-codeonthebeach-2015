@@ -1,26 +1,17 @@
 ﻿<template>
     <h4>There are ${sessions.length} sessions</h4>
-
-
     <div class="col-sm-6 col-md-4" repeat.for="session of sessions">
         <section class="widget bg-primary">
             <div class="widget-body">
                 <a href="#" class="pull-left mr15">
                     <img src="/images/man.jpg" class="avatar avatar-md img-circle" alt="">
                 </a>
-
                 <div class="overflow-hidden">
-
-
                     <span class="">${session.Presenter}</span>
-
                     <span class="show">${session.Name}</span>
                     <span class="show">${session.Room}</span>
                 </div>
             </div>
         </section>
     </div>
-
-
-
 </template>

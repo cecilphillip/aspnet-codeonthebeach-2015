@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Demos.Middleware
+namespace Demos.Config
 {
     public class BlacklistOptions
     {

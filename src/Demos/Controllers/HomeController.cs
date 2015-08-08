@@ -59,8 +59,7 @@ namespace Demos.Controllers
         {
             return View();
         }
-
-        //TODO: do something else with this
+        
         public IActionResult Error()
         {
             return View("~/Views/Shared/Error.cshtml");

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net;
+using System.Threading.Tasks;
+using Demos.Config;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Features;
@@ -22,9 +24,9 @@ namespace Demos.Middleware
             IHttpConnectionFeature connection = context.GetFeature<IHttpConnectionFeature>();
             var ipAddress = connection.RemoteIpAddress.ToString();
 
-            if (!connection.IsLocal && !_options.Options.IpAddresses.Contains(ipAddress))
+            if (_options.Options.IpAddresses.Contains(ipAddress))
             {
-                context.Response.StatusCode = 401;
+                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 context.Response.ContentType = "text/plain";
                 return context.Response.WriteAsync("You Shall Not Pass!!");
             }

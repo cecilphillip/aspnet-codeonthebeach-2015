@@ -20,7 +20,6 @@ namespace Demos
         {
             var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
-
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
@@ -42,13 +41,13 @@ namespace Demos
 
             services.ConfigureBlacklist(op =>
             {
-
+                //Add your black listed IPs
+                op.IpAddresses.Add("127.0.0.1");
             });
 
             services.AddMvc();
         }
-
-        // Configure is called after ConfigureServices is called.
+       
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.MinimumLevel = LogLevel.Information;
@@ -57,7 +56,7 @@ namespace Demos
             app.UseBlacklist();
 
             app.UseSession();
-
+            
             app.UseCookieAuthentication(options =>
             {
                 options.LoginPath = "/secured/login";
@@ -74,10 +73,8 @@ namespace Demos
                 app.UseErrorPage();
             }
             else
-            {
-                // Add Error handling middleware which catches all application specific errors and
-                // send the request to the following path or controller action.
-                app.UseErrorHandler("/Home/Error");
+            {               
+                app.UseErrorHandler( "/Home/Error");
             }
 
             // Add static files to the request pipeline.
@@ -89,8 +86,7 @@ namespace Demos
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}");
-            });
-          
+            });          
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Demos.Config;
 using Microsoft.AspNet.Builder;
 using Microsoft.Framework.DependencyInjection;
 

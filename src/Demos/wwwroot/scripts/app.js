@@ -10,8 +10,8 @@ export class App {
 
     activate() {
         return this.service.getSessions()
-            .then(resp => {
-                this.sessions = resp.content;
-            });
+                    .then(resp => {
+                        this.sessions = resp.content;
+                    });
     }
 }
