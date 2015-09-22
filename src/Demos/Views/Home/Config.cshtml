@@ -72,7 +72,7 @@
  
 public void ConfigureServices(IServiceCollection services)
 {          
-    services.Configure&lt;CustomConfigOptions&gt;(Configuration.GetConfigurationSection("Custom"));
+    services.Configure&lt;CustomConfigOptions&gt;(Configuration.GetSection("Custom"));
 }
                                                          </code></pre>
                 </div>

@@ -5,10 +5,10 @@ using Demos.Services;
 using Microsoft.AspNet.Authentication.Cookies;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.Dnx.Runtime;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
-using Microsoft.Framework.Runtime;
 
 namespace Demos
 {
@@ -29,7 +29,7 @@ namespace Demos
         {
             services.AddTransient<IConferenceSessionService, InMemorySessionService>();
 
-            services.Configure<CustomConfigOptions>(Configuration.GetConfigurationSection("Custom"));
+            services.Configure<CustomConfigOptions>(Configuration.GetSection("Custom"));
 
             services.AddCaching();
             
