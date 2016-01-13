@@ -75,7 +75,8 @@ public void Configure(IApplicationBuilder app)
        options.CookieName = "cotb.demo";
        options.CookieHttpOnly = true;
        options.CookieSecure = CookieSecureOption.SameAsRequest;
-       options.AutomaticAuthentication = true;
+       options.AutomaticAuthenticate = true;
+       options.AutomaticChallenge = true;
    });
 }
                                   </code></pre>

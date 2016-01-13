@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Demos.Config;
+﻿using Demos.Config;
 using Demos.Services;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.OptionsModel;

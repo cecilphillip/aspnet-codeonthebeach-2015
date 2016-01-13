@@ -35,8 +35,9 @@
       }
       public Task Invoke(HttpContext context)
       {
-         //Do something with the requestion and response
+         //Do something with the request
           return _next(context);
+         //Optionally: Do something with the response
       }
   }
  

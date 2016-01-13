@@ -57,7 +57,7 @@ public class Startup
      public void ConfigureServices(IServiceCollection services)
      {
          services.AddTransient&lt;IConferenceSessionService, InMemorySessionService&gt;();
-         services.AddScoped &lt;IConferenceSessionService, InMemorySessionService&gt;();
+         services.AddScoped&lt;IConferenceSessionService, InMemorySessionService&gt;();
          services.AddInstance&lt;IConferenceSessionService&gt;(new InMemorySessionService());
      }
 }

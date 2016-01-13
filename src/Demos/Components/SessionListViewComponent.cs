@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using Demos.Data;
-using Demos.Services;
+﻿using Demos.Services;
 using Microsoft.AspNet.Mvc;
 
 namespace Demos.Components
