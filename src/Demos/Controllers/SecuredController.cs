@@ -39,7 +39,7 @@ namespace Demos.Controllers
                     };
 
                 var id = new ClaimsIdentity(claims, "local", "name", "role");
-                await Context.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(id));
+                await HttpContext.Authentication.SignInAsync("Cookies", new ClaimsPrincipal(id));
 
                 return RedirectToLocal(returnUrl);
             }
@@ -49,7 +49,7 @@ namespace Demos.Controllers
 
         public async Task<IActionResult> Logoff()
         {
-            await Context.Authentication.SignOutAsync("Cookies");
+            await HttpContext.Authentication.SignOutAsync("Cookies");
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 

@@ -4,7 +4,7 @@ using Demos.Config;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Http.Features;
-using Microsoft.Framework.OptionsModel;
+using Microsoft.Extensions.OptionsModel;
 
 namespace Demos.Middleware
 {
@@ -21,10 +21,10 @@ namespace Demos.Middleware
 
         public Task Invoke(HttpContext context)
         {
-            IHttpConnectionFeature connection = context.GetFeature<IHttpConnectionFeature>();
+            IHttpConnectionFeature connection = context.Features.Get<IHttpConnectionFeature>();
             var ipAddress = connection.RemoteIpAddress.ToString();
 
-            if (_options.Options.IpAddresses.Contains(ipAddress))
+            if (_options.Value.IpAddresses.Contains(ipAddress))
             {
                 context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 context.Response.ContentType = "text/plain";

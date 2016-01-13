@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Razor.Runtime.TagHelpers;
+﻿using Microsoft.AspNet.Mvc.Rendering;
+using Microsoft.AspNet.Mvc.ViewFeatures;
+using Microsoft.AspNet.Razor.TagHelpers;
 
 namespace Demos.TagHelpers
 {
-    [TargetElement("div", Attributes = RoleAttributeName)]
+    [HtmlTargetElement("div", Attributes = RoleAttributeName)]
     public class SecureTagHelper: TagHelper
     {       
         private const string RoleAttributeName = "demo-secure";        

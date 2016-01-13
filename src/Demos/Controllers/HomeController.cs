@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Demos.Config;
 using Demos.Services;
 using Microsoft.AspNet.Mvc;
-using Microsoft.Framework.OptionsModel;
+using Microsoft.Extensions.OptionsModel;
 
 namespace Demos.Controllers
 {
@@ -32,7 +32,7 @@ namespace Demos.Controllers
 
         public IActionResult Config()
         {
-            return View(_customSettings.Options);
+            return View(_customSettings.Value);
         }
 
         public IActionResult Middleware()

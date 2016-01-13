@@ -5,10 +5,9 @@ using Demos.Services;
 using Microsoft.AspNet.Authentication.Cookies;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
-using Microsoft.Dnx.Runtime;
-using Microsoft.Framework.Configuration;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.Logging;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Demos
 {
@@ -16,25 +15,23 @@ namespace Demos
     {
         public IConfiguration Configuration { get; set; }
 
-        public Startup(IApplicationEnvironment appEnv)
+        public Startup()
         {
-            var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
-            Configuration = builder.Build();
+            this.Configuration = builder.Build();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IConferenceSessionService, InMemorySessionService>();
 
-            services.Configure<CustomConfigOptions>(Configuration.GetSection("Custom"));
-
+            services.Configure<CustomConfigOptions>(this.Configuration.GetSection("Custom"));
             services.AddCaching();
-            
-            services.AddSession();
-            services.ConfigureSession(o =>
+            services.AddSession(o =>
             {              
                 o.IdleTimeout = TimeSpan.FromSeconds(10);
             });
@@ -53,6 +50,7 @@ namespace Demos
             loggerFactory.MinimumLevel = LogLevel.Information;
             loggerFactory.AddConsole();
 
+            app.UseIISPlatformHandler();
             app.UseBlacklist();
 
             app.UseSession();
@@ -65,16 +63,17 @@ namespace Demos
 
                 options.CookieHttpOnly = true;
                 options.CookieSecure = CookieSecureOption.SameAsRequest;
-                options.AutomaticAuthentication = true;
+                options.AutomaticAuthenticate = true;
+                options.AutomaticChallenge = true;
             });
 
             if (env.IsDevelopment())
             {
-                app.UseErrorPage();
+                app.UseDeveloperExceptionPage();
             }
             else
             {               
-                app.UseErrorHandler( "/Home/Error");
+                app.UseExceptionHandler( "/Home/Error");
             }
 
             // Add static files to the request pipeline.
@@ -88,5 +87,8 @@ namespace Demos
                     template: "{controller=Home}/{action=Index}");
             });          
         }
+
+        // Entry point for the application.
+        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }
