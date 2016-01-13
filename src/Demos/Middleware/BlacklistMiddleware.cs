@@ -21,8 +21,9 @@ namespace Demos.Middleware
 
         public Task Invoke(HttpContext context)
         {
+            //not supported by kestrel in rc1
             IHttpConnectionFeature connection = context.Features.Get<IHttpConnectionFeature>();
-            var ipAddress = connection.RemoteIpAddress.ToString();
+            var ipAddress = connection?.RemoteIpAddress.ToString();
 
             if (_options.Value.IpAddresses.Contains(ipAddress))
             {
